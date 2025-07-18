@@ -12,19 +12,18 @@ This is a personalized romantic website designed specifically for your girlfrien
 - Beautiful red-themed login page with "For Her" branding
 - Custom credentials: `username: mia`, `password: iloveyou`
 - "Do you love me?" checkbox requirement
-- Animated input fields with focus effects
 - Password visibility toggle
 - "WELCOME, BABY!" greeting message
 
 ### 🏠 Main Dashboard
 - Personalized love message for Mia
-- Responsive sidebar navigation
+- Responsive sidebar navigation that turns menu bar on mobile view
 - Interactive cloud animations
 - Mobile-optimized design for iPhone SE 2nd gen
-- Heart-themed branding throughout
+- Love-themed branding throughout
 
 ### 📱 Navigation Sections
-- **MY HOME**: Main dashboard with love message
+- **MY HOME**: Main dashboard with love message and web purpose
 - **MILESTONES**: *[To be implemented]*
 - **PHOTOS**: *[To be implemented]*
 - **LOVE NOTES**: *[To be implemented]*
@@ -47,7 +46,7 @@ This is a personalized romantic website designed specifically for your girlfrien
 ## 📁 File Structure
 
 ```
-birthday-website/
+WEBSITE FOR HER/
 ├── index.html          # Login page
 ├── main.html           # Main dashboard
 ├── styles.css          # Complete styling
@@ -72,6 +71,8 @@ birthday-website/
 - [ ] PHOTOS gallery section
 - [ ] LOVE NOTES message system
 - [ ] Content customization with personal memories
+- [ ] Log-out button
+- [ ] Sending personal email to me (bry)
 
 ## 💝 Planned Content Sections
 
@@ -83,7 +84,7 @@ birthday-website/
 
 ### 💌 LOVE NOTES Section
 Personalized messages for different situations:
-- When she misses you
+- When she misses me
 - When she's sad
 - For her birthday
 - When she needs encouragement
@@ -93,10 +94,11 @@ Personalized messages for different situations:
 - Goodnight messages
 
 ### 🎉 MILESTONES Section
-- Important dates in your relationship
-- Anniversary celebrations
-- Special achievements together
-- Future plans and dreams
+- Niligawan ko siya (November 2023)
+- First kiss
+- Sinagot niya ako (January 15, 2024)
+- First Motmot (February 15, 2024)
+- First Anniversary (January 15, 2025)
 
 ## 📱 Mobile Optimization
 
@@ -120,11 +122,9 @@ Specifically designed for **iPhone SE 2nd gen**:
 - Smooth transitions and animations
 - Cross-browser compatibility
 
-### Interactive Elements
-- Hover effects on clouds
-- Input focus animations
-- Button press feedback
-- Sidebar navigation
+### Interactive Element
+- Button press feedback //what is this?
+- Sidebar navigation to menu bar in mobile view
 
 ## 🎁 Purpose & Meaning
 
@@ -144,13 +144,13 @@ This website serves as:
 
 ## 🔮 Future Enhancements
 
-- [ ] Add more interactive animations
 - [ ] Implement photo upload functionality
 - [ ] Create a message scheduling system
 - [ ] Add background music options
 - [ ] Include countdown timers for special dates
 - [ ] Add weather-based romantic messages
 - [ ] Implement a digital diary feature
+- [ ] Add more interactive animations
 
 ## 💕 Personal Touch
 
@@ -160,10 +160,6 @@ This website serves as:
 
 **Created with love for Mia** 💕  
 *A digital expression of endless love and devotion*
-
-## 📞 Support
-
-If you need to make any updates or modifications to the website, refer to the comments in the code files or customize the content as needed.
 
 ---
 
