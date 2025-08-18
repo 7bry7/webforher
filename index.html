@@ -3,47 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title shown in browser tab -->
     <title>For Her - Login</title>
+    
+    <!-- Link to main stylesheet containing all the romantic red theme -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="login">
+    <!-- 
+        ROMANTIC BRANDING HEADER
+        Displays the main "For Her" brand at the top
+        Styled with elegant typography and heart theme
+    -->
     <div class="brand">For Her</div>
     
+    <!-- 
+        MAIN CONTAINER
+        Centers the login card and provides responsive layout
+        Optimized for iPhone SE 2nd gen screen size
+    -->
     <div class="container">
+        <!-- 
+            LOGIN CARD
+            The main login interface with romantic styling
+            Contains form, decorative elements, and interactive features
+        -->
         <div class="login-card">
-            <div class="dotted-pattern"></div>
             
+            <!-- 
+                LOGIN HEADER
+                Welcome message and main title
+            -->
             <div class="login-header">
                 <h2 class="login-title">Log in</h2>
             </div>
             
+            <!-- 
+                LOGIN FORM
+                Handles authentication with custom romantic credentials
+                Username: "mia" | Password: "iloveyou"
+                Includes JavaScript validation and redirection
+            -->
             <form id="loginForm">
+                <!-- 
+                    USERNAME INPUT GROUP
+                    Contains user icon and input field
+                    Required field with romantic placeholder
+                -->
                 <div class="form-group">
                     <div class="input-icon">👤</div>
-                    <input type="text" class="form-input" placeholder="USERNAME" id="username" required>
+                    <input type="text" 
+                           class="form-input" 
+                           placeholder="USERNAME" 
+                           id="username" 
+                           required>
                 </div>
                 
+                <!-- 
+                    PASSWORD INPUT GROUP
+                    Contains lock icon, password field, and visibility toggle
+                    Interactive password show/hide functionality
+                -->
                 <div class="form-group">
                     <div class="input-icon">🔒</div>
-                    <input type="password" class="form-input" placeholder="PASSWORD" id="password" required>
+                    <input type="password" 
+                           class="form-input" 
+                           placeholder="PASSWORD" 
+                           id="password" 
+                           required>
+                    <!-- 
+                        PASSWORD TOGGLE BUTTON
+                        Allows users to show/hide password
+                        Changes between 👁️ (hidden) and 🙈 (visible)
+                    -->
                     <div class="password-toggle" onclick="togglePassword()">👁️</div>
                 </div>
                 
+                <!-- 
+                    FORM OPTIONS
+                    Contains romantic checkbox and forgot password link
+                -->
                 <div class="form-options">
+                    <!-- 
+                        ROMANTIC CHECKBOX
+                        Instead of "Remember me", asks "DO YOU LOVE ME?"
+                        Required field that adds playful element to login
+                    -->
                     <div class="checkbox-container">
                         <input type="checkbox" id="rememberMe" required>
                         <label for="rememberMe">DO YOU LOVE ME?</label>
                     </div>
+                    
+                    <!-- 
+                        FORGOT PASSWORD LINK
+                        Placeholder link for future functionality
+                        Could lead to romantic password hints
+                    -->
                     <a href="#" class="forgot-password">FORGOT PASSWORD?</a>
                 </div>
                 
+                <!-- 
+                    LOGIN SUBMIT BUTTON
+                    Triggers form validation and redirection
+                    Styled with romantic red theme
+                -->
                 <button type="submit" class="login-btn">LOG IN</button>
             </form>
         </div>
     </div>
     
+    <!-- 
+        WELCOME MESSAGE
+        Romantic greeting displayed at bottom of page
+        Adds personal touch and sets loving tone
+    -->
     <div class="welcome-text">WELCOME, BABY!</div>
 
+    <!-- 
+        JAVASCRIPT FUNCTIONALITY
+        Links to external script containing:
+        - Login authentication logic
+        - Password toggle functionality
+        - Form validation and animations
+        - Input focus effects
+    -->
     <script src="script.js"></script>
 </body>
 </html>
+
+<!-- 
+    DESIGN NOTES:
+    
+    Color Scheme:
+    - Primary Red: #E51E2B
+    - Secondary Red: #D4173F  
+    - Dark Blue: #050B2B
+    - Sage Green: #495B53
+    - White: #FFFFFF
+    
+    Mobile Optimization:
+    - Specifically designed for iPhone SE 2nd gen
+    - Responsive layout with touch-friendly buttons
+    - Optimized font sizes and spacing
+    - Portrait orientation focus
+    
+    User Experience:
+    - Romantic theme throughout
+    - Interactive elements with hover effects
+    - Smooth animations and transitions
+    - Personal touches like "baby" and heart emojis
+    
+    Security:
+    - Simple client-side authentication
+    - Hardcoded credentials for personal use
+    - Form validation prevents empty submissions
+    
+    Future Enhancements:
+    - Add password strength indicator
+    - Implement actual forgot password functionality
+    - Add loading states for form submission
+    - Include welcome animations on page load
+-->
