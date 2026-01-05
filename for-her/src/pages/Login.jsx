@@ -71,7 +71,6 @@ const Login = () => {
                 <input type="checkbox" id="rememberMe" required />
                 <label htmlFor="rememberMe" style={{marginLeft: '8px'}}>DO YOU LOVE ME?</label>
               </div>
-              <a href="#" className="forgot-password">FORGOT PASSWORD?</a>
             </div>
 
             <button type="submit" className="login-btn">LOG IN</button>

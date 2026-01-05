@@ -32,12 +32,15 @@
         radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
 }
 
-body.homepage {
+/* New React CSS */
+.home-body {
     font-family: 'Arial', sans-serif;
-    height: 100vh;
+    min-height: 100vh; /* Use min-height */
+    width: 100vw;      /* Ensure full width */
     background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #d0d0d0 100%);
     display: flex;
     overflow-x: hidden;
+    /* Important: The sidebar is fixed, so we don't need flex-direction column here */
 }
 
 /* ========== LOGIN PAGE ========== */
@@ -174,7 +177,7 @@ body.homepage {
 
 .form-options {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: 30px;
     font-size: 14px;
@@ -237,130 +240,225 @@ body.homepage {
     z-index: 10;
 }
 
-/* ========== HEADER & SIDEBAR (MAIN PAGE) ========== */
-/* Header */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #c53030;
-    height: 60px;
+/* =========================================
+   MODERN WIREFRAME LAYOUT
+   ========================================= */
+
+/* Main Container */
+.home-layout {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif; /* You can switch to 'Montserrat' or 'Poppins' via Google Fonts for exact match */
+}
+
+/* --- LEFT SIDEBAR --- */
+.modern-sidebar {
+    width: 250px;
+    background-color: #A51919; /* Deep Red from wireframe */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 100;
+}
+
+/* Brand Logo Area */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+.brand-arch-icon {
+    width: 30px;
+    height: 15px; /* Half circle height */
+    background: #E58E8E; /* Lighter red */
+    border-radius: 30px 30px 0 0; /* Creates the arch shape */
+    text-indent: -9999px;
+}
+
+.brand-text {
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modern-nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 25px; /* Pill shape */
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* The "Active" white pill style */
+.modern-nav-item.active {
+    background-color: white;
+    color: #A51919; /* Text becomes red */
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.modern-nav-item:hover:not(.active) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Logout at bottom */
+.logout-link {
+    margin-top: auto; /* Pushes to bottom */
+    background: none;
+    border: none;
+    color: rgba(0,0,0,0.4); /* Dark muted text like wireframe */
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.logout-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* --- RIGHT MAIN CONTENT --- */
+.modern-content {
+    flex: 1;
+    background-color: #D6CFC7; /* Paper/Texture color */
+    /* Optional: Add a subtle texture url if you have one */
+    background-image: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.top-right-icon {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 24px;
+    opacity: 0.6;
+    color: #A51919;
+}
+
+.content-grid {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.heart-icon {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.search-bar {
-    flex: 1;
-    max-width: 400px;
-    margin: 0 40px;
-}
-
-.search-input {
     width: 100%;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 14px;
-    outline: none;
+    max-width: 1000px;
+    gap: 50px;
 }
 
-.search-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+/* Text Typography */
+.text-area {
+    flex: 1;
+    max-width: 500px;
 }
 
-.header-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.hero-title {
+    font-size: 42px;
+    line-height: 1;
+    color: #050B2B; /* Navy Dark Blue */
+    font-weight: 900; /* Extra bold */
+    margin-bottom: 25px;
+    text-transform: uppercase;
 }
 
-.icon-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-}
-
-.icon-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Sidebar */
-.sidebar {
-    width: 250px;
-    background: #c53030;
-    height: 100vh;
-    padding-top: 80px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-item {
+.highlight-text {
     display: block;
-    padding: 15px 25px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
+    color: #050B2B;
 }
 
-.nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-left-color: white;
+.hero-description {
+    color: #A54444; /* Reddish brown text */
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 35px;
+    max-width: 400px;
 }
 
-.nav-item.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-left-color: white;
-    font-weight: 600;
-}
-
-.sidebar-bottom {
-    position: absolute;
-    bottom: 30px;
-    left: 25px;
-    display: flex;
-    gap: 15px;
-}
-
-.sidebar-icon {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 20px;
+.modern-see-more-btn {
+    background: transparent;
+    border: 2px solid #8B3A3A; /* Brown/Red border */
+    color: #8B3A3A;
+    padding: 10px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 12px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s;
 }
 
-.sidebar-icon:hover {
+.modern-see-more-btn:hover {
+    background: #8B3A3A;
     color: white;
+}
+
+/* --- ARCH WINDOW (The Cloud Container) --- */
+.arch-container {
+    position: relative;
+    padding: 10px; /* Space for the border outline effect */
+}
+
+/* The border box around the arch (purple line in wireframe) */
+/* If you want the purple outline from wireframe, keep this. If not, remove border. */
+.arch-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent; /* Hidden by default */
+    border-radius: 110px 110px 0 0;
+    pointer-events: none;
+}
+
+.arch-window {
+    width: 280px;
+    height: 450px;
+    background: linear-gradient(to bottom, #CDEFFF 0%, #E6F7FF 100%); /* Light Sky */
+    border-radius: 140px 140px 0 0; /* Creates the big arch */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border: 4px solid white; /* White frame */
+}
+
+/* Reuse your existing Cloud/Sky/Ground CSS */
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: #7DAF2E; /* Bright grass green */
+    border-radius: 50% 50% 0 0 / 20% 20% 0 0;
+    transform: scaleX(1.5);
 }
 
 /* ========== MAIN CONTENT ========== */
@@ -976,5 +1074,85 @@ body.homepage {
     }
     .modal-title {
         font-size: 20px;
+    }
+}
+
+/* =========================================
+   SCENERY & CLOUD ANIMATIONS (Add to bottom)
+   ========================================= */
+
+/* The Container for the Right Side */
+.illustration {
+    flex: 1;
+    position: relative;
+    height: 100%;
+    min-height: 500px; /* Ensures it has height */
+    overflow: hidden;
+    border-radius: 20px;
+    margin-left: 20px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 100%); /* Sky Blue */
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.scene-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+}
+
+/* --- THE CLOUDS (Simple Placeholders) --- */
+.cloud {
+    background: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    border-radius: 5px;
+}
+
+.cloud-1 {
+    top: 15%;
+    left: 20%;
+    width: 80px;
+    height: 40px;
+}
+
+.cloud-2 {
+    top: 35%;
+    right: 25%;
+    width: 60px;
+    height: 30px;
+}
+
+.cloud-3 {
+    top: 50%;
+    left: 30%;
+    width: 70px;
+    height: 35px;
+}
+
+/* --- THE GROUND --- */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background: #495B53; /* Sage Green */
+    border-radius: 50% 50% 0 0 / 20% 20% 0 0; /* Curved hill look */
+    transform: scaleX(1.5);
+}
+
+/* --- ANIMATION KEYFRAMES --- */
+@keyframes floatCloud {
+    0% {
+        left: -150px; /* Start from left */
+    }
+    100% {
+        left: 100%; /* Float to right */
     }
 }
