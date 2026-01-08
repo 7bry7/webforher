@@ -9,32 +9,32 @@ const Milestones = () => {
   const milestones = [
     {
       id: 1,
-      title: "NILIGAWAN KITAAAAA (NOVEMBER 2023)",
-      fullMessage: "This was the beginning of everything beautiful between us...",
+      title: "NILIGAWAN KITAAAAA (NOVEMBER 23, 2023)",
+      fullMessage: "I would like to apologize that I took the time to finally ask you if I can court you, when in fact, we already kissed mwahaha. Talagang I was doubting myself if I can really do more based on what’s currently on my plate. But then, I still got the courage to ask you, and it was the best decision that I made in my life. Plus, I really did more from what’s on my plate!!!!",
       icon: "💖"
     },
     {
       id: 2,
-      title: "FIRST KISS SA 2 P. Conducto Street",
-      fullMessage: "Our first kiss... I still get butterflies thinking about that magical moment...",
+      title: "FIRST KISS SA 2 P. Conducto Street (NOVEMBER 15, 2023)",
+      fullMessage: "This is a groundbreaking event!!! As in, I was so shocked at this time na yung crush ko is kiniss ako jahwdkahdagwfkawl. May maxx na red, tinanong ako kung gusto ko, tapos pinapikit ako, tapos madilim, tapos akala ko gamit kamay na ibibigay sa akin, tas biglang booogsshhhhhhh, HADHSHAWDHAHS, it was so solidddd!",
       icon: "💋"
     },
     {
       id: 3,
       title: "SINAGOT MO AKOOOO (JANUARY 15, 2024)",
-      fullMessage: "The happiest day of my life! When you said yes to being my girlfriend...",
+      fullMessage: "This is the day na hindi ko alam ang magiging expression ko! We were at the linear park, and it was night, and we were simply walking, tapos bigla mo nalang akong sinagot hdahshdwahshdahdwh it wassss soooo romantic!",
       icon: "🥰"
     },
     {
       id: 4,
       title: "FIRST MONTHSARY (FEBRUARY 15, 2024)",
-      fullMessage: "Our first month together was like a beautiful dream...",
+      fullMessage: "Time flies so fast! Biglang first monthsary na natin! This day was sooo daming nangyari, and gabi na tayo nakapag-celebrate kasi may klase us both. Remarkable sa akin na sa first motmot is ikaw yung gumastos huhuhu. Food yata natin no’n is the silog meals and i was so busog that day and so happy. And nagtiktok din us nung “stay with me, I don’t want you to leave” na mga kiss markkkkk. It was simple yet perfect!!! Even now na sinusulat ko to, talagang I could still feel the butterflies!",
       icon: "🎉"
     },
     {
       id: 5,
       title: "FIRST ANNIVERSARY (JANUARY 15, 2025)",
-      fullMessage: "A whole year of pure bliss with you, my queen!",
+      fullMessage: "Whatttt??? Anniversary na natin??? So shocking na 1 year na us, and we made it! It feels surreal na nag-celebrate us ng anniversary, and you are my first ever girlfriend!!!! I love you so much, baby. Super thankful ako na dumating ka sa buhay ko, na nagkaroon ako ng ikaw. You are my woman, my love, my everything! You made me see what’s more in life, and you made me experience the beautiful side that this life can offer. I love you so much!",
       icon: "👑"
     }
   ];

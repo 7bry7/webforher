@@ -1,4 +1,3 @@
-import React from 'react';
 import Sidebar from '../components/Navbar';
 import '../index.css';
 
@@ -48,7 +47,7 @@ const Photos = () => {
       <Sidebar />
 
       <main className="modern-content photos-layout">
-        <h1 className="list-page-title">OUR PHOTO GALLERY 📸</h1>
+        <h1 className="list-page-title">OUR PHOTOS TOGETHER</h1>
 
         <div className="gallery-container">
           {categories.map((category, index) => (
