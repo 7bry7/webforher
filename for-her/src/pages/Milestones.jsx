@@ -1,102 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Her - Milestones</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Header -->
-    <div class="header">
-        <div class="brand">
-            <div class="heart-icon">❤️</div>
-            FOR HER
-        </div>
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search...">
-        </div>
-        <div class="header-icons">  
-            <button class="icon-btn">📧</button>
-            <button class="icon-btn">👤</button>
-            <button class="icon-btn">⚙️</button>
-        </div>
-    </div>
+import React, { useState } from 'react';
+import Sidebar from '../components/Navbar';
+import '../index.css';
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="homepage.html" class="nav-item">MY HOME</a>
-        <a href="milestones.html" class="nav-item active">MILESTONES</a>
-        <a href="photos.html" class="nav-item">PHOTOS</a>
-        <a href="love-notes.html" class="nav-item">LOVE NOTES</a>
+const Milestones = () => {
+  const [selectedMilestone, setSelectedMilestone] = useState(null);
+
+  // Your milestone data
+  const milestones = [
+    {
+      id: 1,
+      title: "NILIGAWAN KITAAAAA (NOVEMBER 2023)",
+      fullMessage: "This was the beginning of everything beautiful between us...",
+      icon: "💖"
+    },
+    {
+      id: 2,
+      title: "FIRST KISS SA 2 P. Conducto Street",
+      fullMessage: "Our first kiss... I still get butterflies thinking about that magical moment...",
+      icon: "💋"
+    },
+    {
+      id: 3,
+      title: "SINAGOT MO AKOOOO (JANUARY 15, 2024)",
+      fullMessage: "The happiest day of my life! When you said yes to being my girlfriend...",
+      icon: "🥰"
+    },
+    {
+      id: 4,
+      title: "FIRST MONTHSARY (FEBRUARY 15, 2024)",
+      fullMessage: "Our first month together was like a beautiful dream...",
+      icon: "🎉"
+    },
+    {
+      id: 5,
+      title: "FIRST ANNIVERSARY (JANUARY 15, 2025)",
+      fullMessage: "A whole year of pure bliss with you, my queen!",
+      icon: "👑"
+    }
+  ];
+
+  return (
+    <div className="home-layout">
+      <Sidebar />
+
+      <main className="modern-content milestones-layout">
         
-        <div class="sidebar-bottom">
-            <div class="sidebar-icon">ℹ️</div>
-            <div class="sidebar-icon">⚙️</div>
+        {/* TOP BAR: Search & Icon */}
+        <div className="top-section">
+            <div className="top-right-icon">✈️</div>
         </div>
-    </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1 class="page-title">
-            LIST OF MILESTONES THAT WE'VE ACHIEVED FOR THE DAYS WE'VE BEEN TOGETHER:
+        {/* PAGE TITLE */}
+        <h1 className="list-page-title">
+          LIST OF MILESTONES THAT WE'VE ACHIEVED FOR<br />
+          THE DAYS WE'VE BEEN TOGETHER:
         </h1>
-        
-        <div class="milestones-container">
-            <table class="milestones-table">
-                <thead class="table-header">
-                    <tr>
-                        <th>No.</th>
-                        <th>KEY MILESTONES</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-row">
-                        <td class="milestone-number">1</td>
-                        <td class="milestone-text">NILIGAWAN KITAAAAA (NOVEMBER 2023)</td>
-                        <td><button class="more-btn" onclick="openModal('milestone1')">More</button></td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="milestone-number">2</td>
-                        <td class="milestone-text">FIRST KISS SA 2 P. Conducto Street</td>
-                        <td><button class="more-btn" onclick="openModal('milestone2')">More</button></td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="milestone-number">3</td>
-                        <td class="milestone-text">SINAGOT MO AKOOOO (JANUARY 15, 2024)</td>
-                        <td><button class="more-btn" onclick="openModal('milestone3')">More</button></td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="milestone-number">4</td>
-                        <td class="milestone-text">FIRST MONTHSARY (FEBRUARY 15, 2024)</td>
-                        <td><button class="more-btn" onclick="openModal('milestone4')">More</button></td>
-                    </tr>
-                    <tr class="table-row">
-                        <td class="milestone-number">5</td>
-                        <td class="milestone-text">FIRST ANNIVERSARY (JANUARY 15, 2025)</td>
-                        <td><button class="more-btn" onclick="openModal('milestone5')">More</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal" id="milestoneModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-icon" id="modalIcon">💕</div>
-                <div class="modal-title" id="modalTitle">Milestone Title</div>
-                <div class="modal-date" id="modalDate">Date</div>
+        {/* MILESTONE LIST TABLE */}
+        <div className="milestone-list-container">
+            
+            {/* Header Row */}
+            <div className="milestone-row header">
+                <div className="col-no header-cell">No.</div>
+                <div className="col-desc header-cell">KEY MILESTONES</div>
+                <div className="col-action header-cell">Action</div>
             </div>
-            <div class="modal-message" id="modalMessage">
-                Message content will appear here...
-            </div>
-            <button class="close-btn" onclick="closeModal()">Close</button>
-        </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+            {/* Data Rows */}
+            {milestones.map((milestone) => (
+                <div key={milestone.id} className="milestone-row">
+                    <div className="col-no data-cell pink-bg">
+                        {milestone.id}
+                    </div>
+                    <div className="col-desc data-cell pink-bg">
+                        {milestone.title}
+                    </div>
+                    <div className="col-action data-cell white-bg">
+                        <button 
+                            className="more-action-btn"
+                            onClick={() => setSelectedMilestone(milestone)}
+                        >
+                            More
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        {/* MODAL POPUP (Same logic as before, just kept hidden until clicked) */}
+        {selectedMilestone && (
+          <div className="modal-overlay" onClick={() => setSelectedMilestone(null)}>
+            <div className="modal-content" onClick={e => e.stopPropagation()}>
+              <div className="modal-header">
+                <span className="modal-icon-large">{selectedMilestone.icon}</span>
+                <h2>Memory #{selectedMilestone.id}</h2>
+              </div>
+              <h3 style={{color: '#A51919', marginBottom: '10px'}}>{selectedMilestone.title}</h3>
+              <p className="modal-body">{selectedMilestone.fullMessage}</p>
+              <button className="close-btn" onClick={() => setSelectedMilestone(null)}>
+                CLOSE
+              </button>
+            </div>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+};
+
+export default Milestones;

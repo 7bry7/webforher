@@ -1,51 +1,12 @@
-import React from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../index.css';
+import Sidebar from '../components/Navbar';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Handle Logout
-  const handleLogout = () => {
-    if (window.confirm("Are you sure you want to log out?")) {
-      navigate('/');
-    }
-  };
-
-  // Helper to check active link
-  const isActive = (path) => location.pathname === path ? 'active' : '';
-
   return (
     <div className="home-layout">
+      {/* Sidebar Navigation */}
+      <Sidebar />
       
-      {/* NEW SIDEBAR (Left Side) */}
-      <nav className="modern-sidebar">
-        <div className="sidebar-brand">
-          <div className="brand-arch-icon">Start</div> {/* CSS will make this the arch shape */}
-          <span className="brand-text">FOR HER</span>
-        </div>
-
-        <div className="nav-links">
-          <Link to="/home" className={`modern-nav-item ${isActive('/home')}`}>
-            MY HOME
-          </Link>
-          <Link to="/milestones" className={`modern-nav-item ${isActive('/milestones')}`}>
-            MILESTONES
-          </Link>
-          <Link to="/photos" className={`modern-nav-item ${isActive('/photos')}`}>
-            PHOTOS
-          </Link>
-          <Link to="/notes" className={`modern-nav-item ${isActive('/notes')}`}>
-            LOVE NOTES
-          </Link>
-        </div>
-
-        <button className="logout-link" onClick={handleLogout}>
-          <span className="logout-icon">↪</span> LOG OUT
-        </button>
-      </nav>
-
       {/* MAIN CONTENT (Right Side) */}
       <main className="modern-content">
         

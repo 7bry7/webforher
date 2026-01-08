@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import Milestones from './pages/Milestones';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         {/* This tells React: "When the link is just '/', show the Login page" */}
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/milestones" element={<Milestones />} />
         
         {/* We will add the Home page route here in the next step! */}
         {/* <Route path="/home" element={<Home />} /> */}
