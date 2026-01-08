@@ -1,564 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Her - Photos</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+import React from 'react';
+import Sidebar from '../components/Navbar';
+import '../index.css';
 
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
+const Photos = () => {
+  // We define our categories here to make the code cleaner
+  const categories = [
+    {
+      title: "Binondo & National Museum",
+      images: [
+        { src: "/images/binondo/binondo1.jpg", caption: "Binondo Date" },
+        { src: "/images/binondo/binondo2.jpg", caption: "Walking around" },
+        { src: "/images/binondo/binondo3.jpg", caption: "Chinatown vibes" },
+        { src: "/images/natmus/n2.jfif", caption: "Museum Art" },
+        { src: "/images/natmus/n4.jfif", caption: "Us at NatMus" },
+      ]
+    },
+    {
+      title: "Your 19th Birthday",
+      images: [
+        { src: "/images/bday/bday1.jpg", caption: "Birthday Girl" },
+        { src: "/images/bday/bday2.jpg", caption: "Arcade Time" },
+        { src: "/images/bday/bday3.jpg", caption: "Celebration" },
+      ]
+    },
+    {
+      title: "Photobooth Memories",
+      images: [
+        { src: "/images/photobooths/p1.jpg", caption: "Life4Cuts" },
+        { src: "/images/photobooths/p2.jpg", caption: "Cute Poses" },
+        { src: "/images/photobooths/p4.jpg", caption: "Market! Market!" },
+        { src: "/images/photobooths/p6.jpg", caption: "Sweet Moments" },
+      ]
+    },
+    {
+      title: "Food Trips",
+      images: [
+        { src: "/images/foods/food1.jpg", caption: "Bonchon" },
+        { src: "/images/foods/food2.jpg", caption: "Jollibee" },
+        { src: "/images/foods/food7.jpg", caption: "Pizza" },
+        { src: "/images/foods/food12.jpg", caption: "Cornetto" },
+      ]
+    }
+  ];
 
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: #c41e3a;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+  return (
+    <div className="home-layout">
+      <Sidebar />
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-        }
+      <main className="modern-content photos-layout">
+        <h1 className="list-page-title">OUR PHOTO GALLERY 📸</h1>
 
-        .heart-icon {
-            font-size: 20px;
-        }
-
-        .search-bar {
-            flex: 1;
-            max-width: 400px;
-            margin: 0 20px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 20px;
-            outline: none;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            placeholder-color: rgba(255,255,255,0.7);
-        }
-
-        .search-input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-
-        .header-icons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .icon-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-
-        .icon-btn:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 60px;
-            width: 180px;
-            height: calc(100vh - 60px);
-            background: #c41e3a;
-            padding: 20px 0;
-            z-index: 900;
-            overflow-y: auto;
-        }
-
-        .nav-item {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            font-weight: 500;
-            transition: all 0.3s;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: rgba(255,255,255,0.1);
-            border-left-color: white;
-        }
-
-        .nav-item.active {
-            background: rgba(255,255,255,0.2);
-            border-left-color: white;
-        }
-
-        .sidebar-bottom {
-            position: absolute;
-            bottom: 20px;
-            left: 25px;
-            display: flex;
-            gap: 15px;
-        }
-
-        .sidebar-icon {
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .sidebar-icon:hover {
-            opacity: 1;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 180px;
-            margin-top: 60px;
-            padding: 30px;
-            min-height: calc(100vh - 60px);
-        }
-
-        .page-title {
-            color: #2c3e50;
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        /* Photo Gallery Sections */
-        .photo-section {
-            margin-bottom: 50px;
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            color: #c41e3a;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .photo-slider {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #f8f9fa;
-            margin-bottom: 20px;
-        }
-
-        .photo-track {
-            display: flex;
-            height: 100%;
-            animation: slide 15s infinite linear;
-        }
-
-        .photo-item {
-            flex: 0 0 250px;
-            height: 100%;
-            margin-right: 15px;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .photo-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            padding: 15px;
-            font-size: 12px;
-            text-align: center;
-        }
-
-        /* Different animation speeds for variety */
-        .photo-section:nth-child(2) .photo-track {
-            animation: slide 20s infinite linear;
-        }
-
-        .photo-section:nth-child(3) .photo-track {
-            animation: slide 18s infinite linear;
-        }
-
-        .photo-section:nth-child(4) .photo-track {
-            animation: slide 22s infinite linear;
-        }
-
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        /* Pause animation on hover */
-        .photo-slider:hover .photo-track {
-            animation-play-state: paused;
-        }
-
-        /* Add some sample photo placeholders */
-        .photo-placeholder {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 150px;
-            }
-            
-            .main-content {
-                margin-left: 150px;
-                padding: 20px;
-            }
-            
-            .photo-item {
-                flex: 0 0 200px;
-            }
-            
-            .photo-slider {
-                height: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s;
-            }
-            
-            .sidebar.open {
-                transform: translateX(0);
-            }
-            
-            .main-content {
-                margin-left: 0;
-                padding: 15px;
-            }
-            
-            .photo-item {
-                flex: 0 0 180px;
-            }
-            
-            .photo-slider {
-                height: 200px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <div class="header">
-        <div class="brand">
-            <div class="heart-icon">❤️</div>
-            FOR HER
+        <div className="gallery-container">
+          {categories.map((category, index) => (
+            <div key={index} className="photo-section">
+              <h2 className="section-title">{category.title}</h2>
+              
+              <div className="photo-slider-wrapper">
+                <div className="photo-track">
+                  {/* We duplicate images to create an infinite scroll effect */}
+                  {[...category.images, ...category.images].map((img, i) => (
+                    <div key={i} className="photo-card">
+                      <img src={img.src} alt={img.caption} />
+                      <div className="photo-overlay">
+                        <span>{img.caption}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-        <div class="search-bar">
-            <input type="text" class="search-input" placeholder="Search...">
-        </div>
-        <div class="header-icons">  
-            <button class="icon-btn">📧</button>
-            <button class="icon-btn">👤</button>
-            <button class="icon-btn">⚙️</button>
-        </div>
+      </main>
     </div>
+  );
+};
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <a href="homepage.html" class="nav-item">MY HOME</a>
-        <a href="milestones.html" class="nav-item">MILESTONES</a>
-        <a href="photos.html" class="nav-item active">PHOTOS</a>
-        <a href="love-notes.html" class="nav-item">LOVE NOTES</a>
-        
-        <div class="sidebar-bottom">
-            <div class="sidebar-icon">ℹ️</div>
-            <div class="sidebar-icon">⚙️</div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1 class="page-title">OUR PHOTOS TOGETHER:</h1>
-        
-        <!-- Binondo/National Museum Section -->
-        <div class="photo-section">
-            <h2 class="section-title">Binondo/National Museum</h2>
-            <div class="photo-slider">
-                <div class="photo-track" id="track1">
-                    <!-- Sample photos - replace with your actual images -->
-                    <div class="photo-item">
-                        <img src="/images/binondo/binondo1.jpg" alt="">
-                        <div class="photo-overlay">Binondo 1</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/binondo/binondo2.jpg" alt="">
-                        <div class="photo-overlay">Binondo 2</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/binondo/binondo3.jpg" alt="">
-                        <div class="photo-overlay">Binondo 3</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Your 19th Birthday Section -->
-        <div class="photo-section">
-            <h2 class="section-title">Your 19th Birthday</h2>
-            <div class="photo-slider">
-                <div class="photo-track" id="track2">
-                    <div class="photo-item">
-                        <img src="/images/bday/bday1.jpg" alt="">
-                        <div class="photo-overlay">Happy 19th birthday!</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/bday/bday2.jpg" alt="">
-                        <div class="photo-overlay">Celebrating you</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/bday/bday3.jpg" alt="">
-                        <div class="photo-overlay">Special day</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Random Sweet Moments Section -->
-        <div class="photo-section">
-            <h2 class="section-title">First Cinema</h2>
-            <div class="photo-slider">
-                <div class="photo-track" id="track3">
-                    <div class="photo-item">
-                        <img src="/images/cine/cine1.jpg" alt="">
-                        <div class="photo-overlay">Cinema Pics</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/cine/cine2.jpg" alt="">
-                        <div class="photo-overlay">Cinema Pics</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Future Adventures Section -->
-        <div class="photo-section">
-            <h2 class="section-title">Clay Date</h2>
-            <div class="photo-slider">
-                <div class="photo-track" id="track4">
-                    <div class="photo-item">
-                       <img src="/images/clay/clay1.jpg" alt="">
-                        <div class="photo-overlay">Teddy Bear</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/clay/clay2.jpg" alt="">
-                        <div class="photo-overlay">Platypus</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="photo-section">
-            <h2 class="section-title">Foods that we shared</h2>
-            <div class="photo-slider">
-                <div class="photo-track" id="track4">
-                    <div class="photo-item">
-                       <img src="/images/foods/food1.jpg" alt="">
-                        <div class="photo-overlay">Bonchon</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food2.jpg" alt="">
-                        <div class="photo-overlay">Jollibee</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food3.jpg" alt="">
-                        <div class="photo-overlay">Movie Snacks</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food4.jpg" alt="">
-                        <div class="photo-overlay">Binondo foods</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food5.jpg" alt="">
-                        <div class="photo-overlay">Chowking</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food6.jpg" alt="">
-                        <div class="photo-overlay">First eat ko sa bahay nyo</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food7.jpg" alt="">
-                        <div class="photo-overlay">Pizza sa Kapasigan</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food8.jpg" alt="">
-                        <div class="photo-overlay">Bibingka sa Kapasigan</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food9.jpg" alt="">
-                        <div class="photo-overlay">Many foods nung bday ko</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food10.jpg" alt="">
-                        <div class="photo-overlay">Dakila foods</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food11.jpg" alt="">
-                        <div class="photo-overlay">Unli Rice sa San Jose</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food12.jpg" alt="">
-                        <div class="photo-overlay">7/11 Cornetto</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food13.jpg" alt="">
-                        <div class="photo-overlay">Burger sa Sto. Tomas</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food14.jpg" alt="">
-                        <div class="photo-overlay">Happy Bap sa Rotonda</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/foods/food15.jpg" alt="">
-                        <div class="photo-overlay">Dakila foods ulit</div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="photo-section">
-            <h2 class="section-title">Photobooths</h2>
-            <div class="photo-slider">
-                <div class="photo-track" id="track4">
-                    <div class="photo-item">
-                       <img src="/images/photobooths/p1.jpg" alt="">
-                        <div class="photo-overlay">life4cuts</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/photobooths/p2.jpg" alt="">
-                        <div class="photo-overlay">kapasigan</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/photobooths/p3.jpg" alt="">
-                        <div class="photo-overlay">market! market!</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/photobooths/p4.jpg" alt="">
-                        <div class="photo-overlay">market! market! life4cuts</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/photobooths/p5.jpg" alt="">
-                        <div class="photo-overlay">photo objet</div>
-                    </div>
-                    <div class="photo-item">
-                        <img src="/images/photobooths/p6.jpg" alt="">
-                        <div class="photo-overlay">photo object pa din!</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Only apply JavaScript to this photos page specifically
-        // This won't interfere with your other pages
-        
-        // Mobile menu toggle (if needed)
-        function toggleMobileMenu() {
-            const sidebar = document.querySelector('.sidebar');
-            if (sidebar) {
-                sidebar.classList.toggle('open');
-            }
-        }
-
-        // Optional: Add click handlers for header icons (photos page only)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Only run this code if we're on the photos page
-            if (document.querySelector('.photo-slider')) {
-                
-                // Smooth scroll behavior for the page
-                document.documentElement.style.scrollBehavior = 'smooth';
-                
-                // Optional: Pause all animations when page is not visible
-                document.addEventListener('visibilitychange', function() {
-                    const tracks = document.querySelectorAll('.photo-track');
-                    tracks.forEach(track => {
-                        if (document.hidden) {
-                            track.style.animationPlayState = 'paused';
-                        } else {
-                            track.style.animationPlayState = 'running';
-                        }
-                    });
-                });
-                
-                // Add click event to photo items (optional)
-                document.querySelectorAll('.photo-item').forEach(item => {
-                    item.addEventListener('click', function(e) {
-                        // Don't prevent default - this is specific to photo items
-                        console.log('Photo clicked:', this.querySelector('.photo-overlay')?.textContent);
-                        // You can add photo modal/lightbox functionality here
-                    });
-                });
-            }
-        });
-    </script>
-</body>
-</html>
+export default Photos;
