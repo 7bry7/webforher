@@ -372,6 +372,7 @@
 .text-area {
     flex: 1;
     max-width: 500px;
+    text-align: justify;
 }
 
 .hero-title {
@@ -381,6 +382,7 @@
     font-weight: 900; /* Extra bold */
     margin-bottom: 25px;
     text-transform: uppercase;
+    text-align: justify;
 }
 
 .highlight-text {
@@ -397,20 +399,23 @@
 }
 
 .modern-see-more-btn {
-    background: transparent;
-    border: 2px solid #8B3A3A; /* Brown/Red border */
-    color: #8B3A3A;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 12px;
+    background: linear-gradient(135deg, #ff8080 0%, #ff6b6b 100%);
+    color: white;
+    border: none; /* Remove line border */
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(165, 25, 25, 0.2);
 }
 
 .modern-see-more-btn:hover {
-    background: #8B3A3A;
-    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
 }
 
 /* --- ARCH WINDOW (The Cloud Container) --- */
@@ -434,8 +439,8 @@
 }
 
 .arch-window {
-    width: 280px;
-    height: 450px;
+    width: 400px;
+    height: 670px;
     background: linear-gradient(to bottom, #CDEFFF 0%, #E6F7FF 100%); /* Light Sky */
     border-radius: 140px 140px 0 0; /* Creates the big arch */
     overflow: hidden;
@@ -628,309 +633,6 @@
 }
 
 .modal-date {
-    font-size: 16px;
-    opacity: 0.9;
-    margin-bottom: 20px;
-}
-
-.modal-message {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.close-btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 2px solid white;
-    padding: 12px 30px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.close-btn:hover {
-    background: white;
-    color: #c53030;
-}
-
-/* ========== LOVE NOTES PAGE STYLES ========== */
-.love-notes-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-}
-
-.love-notes-body .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #c53030;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.love-notes-body .brand {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.love-notes-body .heart-icon {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.love-notes-body .search-bar {
-    flex: 1;
-    max-width: 400px;
-    margin: 0 40px;
-}
-
-.love-notes-body .search-input {
-    width: 100%;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 14px;
-    outline: none;
-}
-
-.love-notes-body .search-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.love-notes-body .header-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.love-notes-body .icon-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-}
-
-.love-notes-body .icon-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.love-notes-body .sidebar {
-    width: 250px;
-    background: #c53030;
-    height: 100vh;
-    padding-top: 80px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.love-notes-body .nav-item {
-    display: block;
-    padding: 15px 25px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
-}
-
-.love-notes-body .nav-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-left-color: white;
-}
-
-.love-notes-body .nav-item.active {
-    background: rgba(255, 255, 255, 0.2);
-    border-left-color: white;
-    font-weight: 600;
-}
-
-.love-notes-body .sidebar-bottom {
-    position: absolute;
-    bottom: 30px;
-    left: 25px;
-    display: flex;
-    gap: 15px;
-}
-
-.love-notes-body .sidebar-icon {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.love-notes-body .sidebar-icon:hover {
-    color: white;
-}
-
-.love-notes-body .main-content {
-    margin-left: 250px;
-    padding: 80px 50px 50px;
-    flex: 1;
-    min-height: 100vh;
-}
-
-.love-notes-body .page-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: #2d3748;
-    margin-bottom: 40px;
-    text-align: center;
-    line-height: 1.3;
-}
-
-/* Envelopes Animation */
-.envelopes-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.envelope {
-    width: 100px;
-    height: 140px;
-    background: #ffb3ba;
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.envelope:hover {
-    transform: scale(1.05);
-}
-
-.envelope-body {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.envelope-flap {
-    height: 40px;
-    background: #c53030;
-    border-radius: 10px 10px 0 0;
-    position: relative;
-}
-
-.envelope.opened .envelope-flap {
-    height: 0;
-    overflow: hidden;
-    border-radius: 10px;
-}
-
-.envelope-heart {
-    font-size: 24px;
-    color: white;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.envelope-letter {
-    font-size: 14px;
-    color: #2d3748;
-    line-height: 1.4;
-    display: none;
-}
-
-.envelope.opened .envelope-letter {
-    display: block;
-}
-
-.letter-hearts {
-    font-size: 12px;
-    color: #c53030;
-    display: none;
-}
-
-.envelope.opened .letter-hearts {
-    display: block;
-}
-
-.envelope-title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #2d3748;
-    margin-top: 10px;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-content {
-    background: linear-gradient(135deg, #c53030 0%, #a02828 100%);
-    border-radius: 25px;
-    padding: 40px;
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-    color: white;
-    position: relative;
-    animation: modalSlideIn 0.3s ease-out;
-}
-
-.modal-header {
-    margin-bottom: 20px;
-}
-
-.modal-heart {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.modal-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.modal-subtitle {
     font-size: 16px;
     opacity: 0.9;
     margin-bottom: 20px;
@@ -1178,27 +880,37 @@
     text-transform: uppercase;
     margin-bottom: 30px;
     line-height: 1.2;
-    text-align: left;
+    text-align: center;
     width: 100%;
 }
 
-/* --- THE LIST/TABLE --- */
+/* =========================================
+   MILESTONES - SOFT PILL DESIGN
+   ========================================= */
+
 .milestone-list-container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Gap between rows */
+    gap: 18px; /* More breathing room between rows */
+    padding: 10px;
 }
 
 .milestone-row {
     display: flex;
-    gap: 12px; /* Gap between columns */
-    height: 50px; /* Fixed height for uniformity */
+    gap: 15px;
+    height: 65px; /* Taller rows for a softer feel */
+    transition: transform 0.2s ease;
 }
 
-/* Column Widths */
+/* Hover Effect: Row pops out slightly */
+.milestone-row:hover {
+    transform: scale(1.02); 
+}
+
+/* --- COLUMN WIDTHS --- */
 .col-no {
-    width: 60px;
+    width: 70px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -1206,60 +918,78 @@
 }
 
 .col-desc {
-    flex: 1; /* Takes remaining space */
+    flex: 1; 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Center text specifically */
     text-align: center;
-    padding: 0 10px;
-    font-size: 14px;
-    font-weight: 500;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .col-action {
-    width: 80px;
+    width: 100px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Cell Colors from Wireframe */
+/* --- THE SOFT DESIGN STYLES --- */
+
+/* 1. Header Row */
 .header-cell {
-    background-color: #FF9999; /* Darker Salmon for Header */
-    color: #050B2B;
-    font-weight: bold;
+    background: linear-gradient(135deg, #ff8080 0%, #ff6b6b 100%); /* Richer Gradient */
+    color: white;
+    font-weight: 800;
     font-size: 14px;
-    border-radius: 4px; /* Slight rounded corners */
-}
-
-.pink-bg {
-    background-color: #FFD1D1; /* Light Pink for data */
-    color: #333;
-    border-radius: 4px;
-}
-
-.white-bg {
-    background-color: white;
-    border-radius: 4px;
-}
-
-/* Action Button */
-.more-action-btn {
-    background: transparent;
+    text-transform: uppercase;
+    border-radius: 20px; /* Big soft corners */
+    box-shadow: 0 4px 10px rgba(165, 25, 25, 0.2); /* Shadow */
     border: none;
-    color: #333;
-    font-size: 13px;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
 }
 
-.more-action-btn:hover {
-    font-weight: bold;
+/* 2. Data Rows (Pink Background) */
+.pink-bg {
+    background: linear-gradient(to right, #ffebeb 0%, #ffcccc 100%); /* Soft Gradient */
+    color: #5d1818; /* Dark red text for better readability */
+    border-radius: 20px; /* Soft edges */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Subtle shadow */
+    font-family: 'Arial', sans-serif; /* Clean font */
+}
+
+.col-no.pink-bg {
+    font-weight: 900;
+    font-size: 18px;
     color: #A51919;
 }
 
+/* 3. Action Button (White Background) */
+.white-bg {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.more-action-btn {
+    background: transparent;
+    border: none;
+    color: #A51919;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.more-action-btn:hover {
+    background: #fff0f0;
+    color: #ff0000;
+}
 /* =========================================
    PHOTOS PAGE STYLES
    ========================================= */
@@ -1270,7 +1000,7 @@
     align-items: flex-start;
     padding: 40px;
     overflow-y: auto;
-    background-color: #FDFCF8; /* Slightly warmer white */
+    background-color: #FDFCF8; 
 }
 
 .gallery-container {
@@ -1284,12 +1014,17 @@
 }
 
 .section-title {
-    color: #A51919;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    border-left: 5px solid #050B2B;
-    padding-left: 15px;
+    border-left: none; 
+    background: linear-gradient(135deg, #ff8080 0%, #ff6b6b 100%);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px; /* Perfectly round ends */
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: inline-block; /* Wraps tightly around text */
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4); /* Glowy shadow */
 }
 
 /* Slider Container */
@@ -1308,22 +1043,27 @@
     animation: scrollGallery 30s linear infinite;
 }
 
-/* Individual Photo Card */
+/* 2. The Photo Cards: Super rounded & white border */
 .photo-card {
     width: 200px;
     height: 280px;
     flex-shrink: 0;
-    border-radius: 15px;
+    
+    /* Soft Shape */
+    border-radius: 30px; /* Much rounder */
+    border: 5px solid white; /* Cute photo frame effect */
+    
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Floating depth */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy hover */
     cursor: pointer;
 }
 
 .photo-card:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px) scale(1.02);
     z-index: 10;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .photo-card img {
@@ -1360,4 +1100,392 @@
 /* Pause on Hover */
 .photo-slider-wrapper:hover .photo-track {
     animation-play-state: paused;
+}
+
+/* =========================================
+   LOVE NOTES PAGE STYLES
+   ========================================= */
+
+.notes-layout {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.envelopes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.envelope-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope-container:hover {
+    transform: translateY(-10px);
+}
+
+.envelope {
+    position: relative;
+    width: 160px;
+    height: 100px;
+    background-color: #ff9999; /* Envelope Base Color */
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* The triangular flap */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-top: 60px solid #ff8080; /* Flap Color (slightly darker) */
+    transform-origin: top;
+    transition: transform 0.4s ease, z-index 0.4s;
+    z-index: 3;
+}
+
+/* Open Animation */
+.envelope-container:hover .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+/* The front pocket of the envelope */
+.envelope-pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 80px solid #ffb3b3; /* Left Triangle */
+    border-right: 80px solid #ffb3b3; /* Right Triangle */
+    border-bottom: 50px solid #ffcccc; /* Bottom Triangle */
+    border-top: 50px solid transparent;
+    z-index: 2;
+}
+
+/* The Letter Inside */
+.letter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 140px;
+    height: 80px;
+    background: white;
+    border-radius: 5px;
+    z-index: 1;
+    transition: transform 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+}
+
+.envelope-container:hover .letter {
+    transform: translateY(-40px); /* Slides the letter up */
+}
+
+.letter-hearts {
+    font-size: 14px;
+}
+
+.envelope-title {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #A51919;
+    text-align: center;
+}
+
+/* Note Reading Modal Tweaks */
+.paper-texture {
+    background-color: #fffdf5; /* Cream paper color */
+    border: 1px solid #e0e0e0;
+}
+
+.modal-message-scoll {
+    max-height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    white-space: pre-wrap; /* Preserves new lines */
+    padding-right: 10px;
+    font-family: 'Georgia', serif; /* More letter-like font */
+    color: #444;
+}
+
+.modal-message-scoll p {
+    margin-bottom: 15px;
+}
+
+/* Modal Overlay for Notes */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.modal-icon-large {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   2ND ANNIVERSARY SPECIAL STYLES
+   ========================================= */
+
+.centered-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- THE BIG ENVELOPE --- */
+.big-envelope-wrapper {
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+.anniversary-title {
+    color: #A51919;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.big-envelope {
+    position: relative;
+    width: 300px;  /* Much bigger */
+    height: 200px;
+    background-color: #ff6b6b;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(165, 25, 25, 0.3);
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.big-envelope:hover {
+    transform: scale(1.05);
+}
+
+.big-envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 110px solid #ff4757; /* Darker red flap */
+    transform-origin: top;
+    transition: transform 0.6s ease;
+    z-index: 3;
+}
+
+.big-envelope:hover .big-envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.big-envelope-pocket {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid #ff8787;
+    border-right: 150px solid #ff8787;
+    border-bottom: 100px solid #ffa5a5;
+    border-top: 100px solid transparent;
+    z-index: 2;
+}
+
+.big-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    z-index: 4;
+    transition: transform 0.6s ease;
+}
+
+.big-envelope:hover .big-heart {
+    transform: translate(-50%, -80%) scale(1.2);
+    opacity: 0;
+}
+
+.click-hint {
+    margin-top: 30px;
+    color: #A54444;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+/* --- TRANSITION & BLUR --- */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(0px);
+    z-index: 5;
+    pointer-events: none;
+    transition: backdrop-filter 0.8s ease;
+}
+
+.blur-overlay.active {
+    backdrop-filter: blur(15px); /* Strong blur effect */
+    pointer-events: all;
+}
+
+/* --- CELEBRATION MODAL --- */
+.celebration-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background: white;
+    padding: 50px;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    z-index: 20;
+    animation: popOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    border: 8px solid #ffebeb;
+}
+.close-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #ff8080 0%, #ff6b6b 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.close-btn:hover {
+    transform: scale(1.05);
+}
+
+@keyframes popOpen {
+    to { transform: translate(-50%, -50%) scale(1); }
+}
+
+.celebration-figure {
+    height: 150px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.celebration-title {
+    color: #A51919;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.celebration-message {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* =========================================
+   BACKGROUND MUSIC PLAYER
+   ========================================= */
+.music-player-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Ensure it's on top of everything */
+}
+
+.music-toggle-btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #A51919;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.music-toggle-btn:hover {
+    transform: scale(1.1);
+    background-color: white;
+}
+
+.days-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+    width: fit-content;
+}
+
+.counter-number {
+    font-size: 24px;
+    font-weight: 900;
+    color: #A51919;
+}
+
+.counter-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #050B2B;
+    letter-spacing: 1px;
 }

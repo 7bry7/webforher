@@ -36,6 +36,12 @@ const Milestones = () => {
       title: "FIRST ANNIVERSARY (JANUARY 15, 2025)",
       fullMessage: "Whatttt??? Anniversary na natin??? So shocking na 1 year na us, and we made it! It feels surreal na nag-celebrate us ng anniversary, and you are my first ever girlfriend!!!! I love you so much, baby. Super thankful ako na dumating ka sa buhay ko, na nagkaroon ako ng ikaw. You are my woman, my love, my everything! You made me see what’s more in life, and you made me experience the beautiful side that this life can offer. I love you so much!",
       icon: "👑"
+    },
+    {
+      id: 6,
+      title: "SECOND ANNIVERSARY (JANUARY 15, 2026)",
+      fullMessage: "HAPPY 2ND YEAR ANNIVERSARY, MAHAL KO!!! I just wanted to wish us more loving, understanding, and giving years to come! I just can’t believe na lahat ng ‘yon ay ganun lang kabilis nangyari. Parang ginanon ganon lang, tapos 2 years na us!!! From nakikita lang sa picture na sine-send ni Ange, naglalaro ng CODM, binati sa court ng Buting, kaway-kaway sa daan, to magkarelasyon <3333. I just wanted to take this moment for you to read that I am the proudest sa mga na-achieve mo at maa-achieve mo pa. I love you, Mahal! I am so grateful that we breathe the same air on the same planet! I love you so much and God bless you!",
+      icon: "💐"
     }
   ];
 

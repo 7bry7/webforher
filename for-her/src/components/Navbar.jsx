@@ -31,7 +31,7 @@ const Sidebar = () => {
           PHOTOS
         </Link>
         <Link to="/notes" className={`modern-nav-item ${isActive('/notes')}`}>
-          LOVE NOTES
+          ANNIV MESSAGE
         </Link>
       </div>
 
