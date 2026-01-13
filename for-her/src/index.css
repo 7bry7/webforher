@@ -336,7 +336,7 @@
 }
 
 .logout-link:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgb(125, 6, 6);
     transform: translateY(-2px);
 }
 
@@ -666,8 +666,7 @@
 }
 
 .close-btn:hover {
-    background: white;
-    color: #c53030;
+    background: rgb(104, 0, 0);
 }
 
 /* ========== ANIMATIONS ========== */
@@ -1613,6 +1612,7 @@
         min-height: 100vh;
         width: 100vw;
         overflow-x: hidden;
+
     }
 
     /* --- 2. SIDEBAR BECOMES BOTTOM NAV --- */
@@ -1669,7 +1669,7 @@
     }
 
     .logout-link:hover {
-        background: #8b1515;
+        background: #630d0d;
         transform: scale(1.1) rotate(15deg);
     }
 
@@ -1695,21 +1695,42 @@
         flex-direction: column-reverse; /* Image on top, Text below */
         gap: 30px;
         text-align: center;
+        align-items: center; /* Center everything */
+        justify-content: center;
     }
 
     .text-area {
         width: 100%;
         max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center all content */
     }
 
     .hero-title {
         font-size: 22px; /* Smaller title */
         margin-top: 20px;
+        text-align: center;
     }
 
     .hero-description {
         font-size: 13px; /* Smaller description text */
         margin: 0 auto 30px auto; /* Center align */
+        text-align: center;
+    }
+
+    .days-counter {
+        margin: 0 auto 30px auto; /* Center the counter */
+    }
+
+    .modern-see-more-btn {
+        margin: 0 auto; /* Center the button */
+    }
+
+    .arch-container {
+        display: flex;
+        justify-content: center; /* Center the arch window */
+        margin: 0 auto;
     }
 
     /* Resize the Arch Window */
@@ -1803,13 +1824,18 @@
     .big-envelope-flap {
         border-left-width: 120px;
         border-right-width: 120px;
-        border-top-width: 90px;
+        border-top-width: 100px;
     }
     
     .big-envelope-pocket {
         border-left-width: 120px;
         border-right-width: 120px;
-        border-bottom-width: 80px;
+        border-bottom-width: 70px;
+        border-top-width: 90px;
+    }
+
+    .big-heart {
+        font-size: 45px; /* Smaller heart for mobile */
     }
     
     .celebration-modal {
