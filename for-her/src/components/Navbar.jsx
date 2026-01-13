@@ -35,8 +35,11 @@ const Sidebar = () => {
         </Link>
       </div>
 
-      <button className="logout-link" onClick={handleLogout}>
-        <span className="logout-icon">↪</span> LOG OUT
+      <button 
+        className={`logout-link ${location.pathname === '/home' ? 'show-on-home' : ''}`} 
+        onClick={handleLogout}
+      >
+        <span className="logout-icon">↪</span>
       </button>
     </nav>
   );

@@ -319,17 +319,25 @@
 
 /* Logout at bottom */
 .logout-link {
-    margin-top: auto; /* Pushes to bottom */
-    background: none;
+    margin-top: auto; /* Pushes to bottom of sidebar */
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     border: none;
-    color: rgba(0,0,0,0.4); /* Dark muted text like wireframe */
+    padding: 12px 20px;
+    border-radius: 25px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.logout-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .logout-icon {
@@ -1091,6 +1099,97 @@
     opacity: 1;
 }
 
+/* Lightbox Styles */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: zoomIn 0.3s ease-in-out;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    margin-top: 20px;
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 3rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.photos-layout.blurred {
+    filter: blur(8px);
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 /* Animation Keyframes */
 @keyframes scrollGallery {
     0% { transform: translateX(0); }
@@ -1387,7 +1486,11 @@
     z-index: 20;
     animation: popOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     border: 8px solid #ffebeb;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
+
 .close-btn {
     margin-top: 20px;
     background: linear-gradient(135deg, #ff8080 0%, #ff6b6b 100%);
@@ -1424,11 +1527,18 @@
 
 .celebration-message {
     font-family: 'Georgia', serif;
-    font-size: 18px;
+    font-size: 14px;
     color: #555;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: justify;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    text-align: justify;
+    border: 1px solid #eee;
 }
 
 @keyframes bounce {
@@ -1488,4 +1598,243 @@
     font-weight: bold;
     color: #050B2B;
     letter-spacing: 1px;
+}
+
+/* =========================================
+   RESPONSIVE MOBILE DESIGN (Add to bottom)
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* --- 1. GLOBAL LAYOUT --- */
+    .home-layout {
+        flex-direction: column; /* Stack items vertically */
+        height: auto;
+        min-height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    /* --- 2. SIDEBAR BECOMES BOTTOM NAV --- */
+    .modern-sidebar {
+        width: 100%;
+        height: 70px; /* Fixed height for bottom bar */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        flex-direction: row; /* Horizontal icons */
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 20px;
+        z-index: 1000;
+        border-radius: 20px 20px 0 0; /* Rounded top corners */
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+    }
+
+    /* Hide the big brand logo on mobile to save space */
+    .sidebar-brand {
+        display: none;
+    }
+
+    /* Adjust Navigation Links */
+    .nav-links {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        gap: 5px;
+    }
+
+    .modern-nav-item {
+        font-size: 10px; /* Smaller text */
+        padding: 8px 12px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* Logout button for mobile - fixed position icon only */
+    .logout-link {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        margin-top: 0;
+        background: #A51919;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 16px;
+        box-shadow: 0 4px 10px rgba(165, 25, 25, 0.3);
+        z-index: 9999;
+        display: none; /* Hide by default on mobile */
+    }
+
+    .logout-link:hover {
+        background: #8b1515;
+        transform: scale(1.1) rotate(15deg);
+    }
+
+    /* Show logout button only on home page for mobile */
+    .logout-link.show-on-home {
+        display: flex;
+    }
+
+    .logout-icon {
+        font-size: 18px;
+    }
+
+    /* --- 3. MAIN CONTENT ADJUSTMENTS --- */
+    .modern-content {
+        width: 100%;
+        padding: 20px;
+        padding-bottom: 100px; /* Extra space for bottom nav */
+        flex-direction: column;
+    }
+
+    /* --- 4. HOME PAGE STACKING --- */
+    .content-grid {
+        flex-direction: column-reverse; /* Image on top, Text below */
+        gap: 30px;
+        text-align: center;
+    }
+
+    .text-area {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 22px; /* Smaller title */
+        margin-top: 20px;
+    }
+
+    .hero-description {
+        font-size: 13px; /* Smaller description text */
+        margin: 0 auto 30px auto; /* Center align */
+    }
+
+    /* Resize the Arch Window */
+    .arch-window {
+        width: 220px;
+        height: 320px;
+        border-width: 3px;
+    }
+
+    /* --- 5. MILESTONES LIST --- */
+    .milestones-layout {
+        padding: 15px;
+        padding-bottom: 90px;
+    }
+
+    .styled-search-bar {
+        width: 100%; /* Full width search */
+    }
+
+    .milestone-row {
+        gap: 8px;
+    }
+
+    .col-no {
+        width: 40px; /* Smaller number column */
+        font-size: 14px;
+    }
+
+    .col-desc {
+        font-size: 11px; /* Smaller text for mobile */
+        padding: 0 10px;
+        line-height: 1.2;
+    }
+
+    .col-action {
+        width: 60px;
+    }
+    
+    .more-action-btn {
+        font-size: 10px;
+    }
+    
+    .list-page-title {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* --- 6. PHOTOS PAGE --- */
+    .photo-card {
+        width: 160px; /* Smaller cards */
+        height: 220px;
+    }
+
+    /* --- 6.5. LIGHTBOX FOR MOBILE --- */
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 85%;
+        padding: 10px;
+    }
+
+    .lightbox-content img {
+        max-height: 60vh; /* Smaller image on mobile */
+        border-radius: 8px;
+    }
+
+    .lightbox-caption {
+        margin-top: 10px;
+        font-size: 0.85rem; /* Smaller text */
+        padding: 0 10px;
+    }
+
+    .section-title {
+        font-size: 14px; /* Smaller section titles */
+        padding: 10px 20px;
+    }
+
+    .lightbox-close {
+        top: -40px;
+        right: 0; /* Move it closer to the edge */
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+    }
+
+    /* --- 7. ANNIVERSARY ENVELOPE --- */
+    .big-envelope {
+        width: 240px;
+        height: 160px;
+    }
+    
+    .big-envelope-flap {
+        border-left-width: 120px;
+        border-right-width: 120px;
+        border-top-width: 90px;
+    }
+    
+    .big-envelope-pocket {
+        border-left-width: 120px;
+        border-right-width: 120px;
+        border-bottom-width: 80px;
+    }
+    
+    .celebration-modal {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .celebration-title {
+        font-size: 18px;
+    }
+
+    .celebration-message {
+        font-size: 13px; /* Match smaller text size */
+    }
+
+    .anniversary-title {
+        font-size: 20px; /* Smaller on mobile */
+    }
+    
+    /* --- 8. FLOATING MUSIC BUTTON --- */
+    .music-player-container {
+        bottom: 85px; /* Move it up so it doesn't overlap nav bar */
+        right: 15px;
+    }
+    .desktop-only {
+        display: none; /* Hide desktop-only elements on mobile */
+    }
 }

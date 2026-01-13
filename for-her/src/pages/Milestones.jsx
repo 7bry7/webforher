@@ -50,11 +50,6 @@ const Milestones = () => {
       <Sidebar />
 
       <main className="modern-content milestones-layout">
-        
-        {/* TOP BAR: Search & Icon */}
-        <div className="top-section">
-            <div className="top-right-icon">✈️</div>
-        </div>
 
         {/* PAGE TITLE */}
         <h1 className="list-page-title">

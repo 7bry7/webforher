@@ -1,7 +1,10 @@
+import React, { useState } from 'react';
 import Sidebar from '../components/Navbar';
 import '../index.css';
 
 const Photos = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   // We define our categories here to make the code cleaner
   const categories = [
     {
@@ -73,7 +76,18 @@ const Photos = () => {
     <div className="home-layout">
       <Sidebar />
 
-      <main className="modern-content photos-layout">
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div className="lightbox-overlay" onClick={() => setSelectedImage(null)}>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={() => setSelectedImage(null)}>×</button>
+            <img src={selectedImage.src} alt={selectedImage.caption} />
+            <p className="lightbox-caption">{selectedImage.caption}</p>
+          </div>
+        </div>
+      )}
+
+      <main className={`modern-content photos-layout ${selectedImage ? 'blurred' : ''}`}>
         <h1 className="list-page-title">OUR PHOTOS TOGETHER</h1>
 
         <div className="gallery-container">
@@ -85,7 +99,7 @@ const Photos = () => {
                 <div className="photo-track">
                   {/* We duplicate images to create an infinite scroll effect */}
                   {[...category.images, ...category.images].map((img, i) => (
-                    <div key={i} className="photo-card">
+                    <div key={i} className="photo-card" onClick={() => setSelectedImage(img)}>
                       <img src={img.src} alt={img.caption} />
                       <div className="photo-overlay">
                         <span>{img.caption}</span>

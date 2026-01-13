@@ -43,7 +43,7 @@ const Notes = () => {
             {/* Fallback emoji if image is missing */}
             <div className="fallback-figure" style={{display: 'none', fontSize: '80px'}}>🧸🎂</div>
 
-            <h2 className="celebration-title">Happy 2nd Anniversary! 🎉</h2>
+            <h2 className="celebration-title">Happy 2nd Anniversary! 🎉💕🎊</h2>
             
             <div className="celebration-message">
               {anniversaryMessage.split('\n').map((line, i) => (
@@ -52,7 +52,7 @@ const Notes = () => {
             </div>
 
             <button className="close-btn" onClick={() => setIsOpen(false)}>
-              Keep this forever ❤️
+              Close
             </button>
           </div>
         )}

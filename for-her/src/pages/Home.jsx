@@ -28,9 +28,6 @@ const Home = () => {
       
       {/* MAIN CONTENT (Right Side) */}
       <main className="modern-content">
-        
-        {/* Top Right Decorative Icon */}
-        <div className="top-right-icon">✈️</div>
 
         <div className="content-grid">
           {/* Left Text Area */}
