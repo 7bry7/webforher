@@ -728,6 +728,29 @@
     }
 }
 
+/* Tablet/Laptop: 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .celebration-modal {
+        max-width: 600px;
+        width: calc(100% - 300px); /* Account for sidebar width (250px) + margin */
+        left: calc(50% + 125px); /* Shift right to center in available space */
+        padding: 30px;
+    }
+
+    .celebration-title {
+        font-size: 24px;
+    }
+
+    .celebration-message {
+        font-size: 13px;
+        max-height: 250px;
+    }
+
+    .celebration-figure {
+        height: 120px;
+    }
+}
+
 @media (max-width: 768px) {
     .sidebar {
         width: 200px;
@@ -1864,3 +1887,4 @@
         display: none; /* Hide desktop-only elements on mobile */
     }
 }
+
