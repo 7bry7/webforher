@@ -1,7 +1,26 @@
 import '../index.css';
 import Sidebar from '../components/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  // --- NEW FUNCTION TO CALCULATE DAYS ---
+  const calculateDaysTogether = () => {
+    const startDate = new Date('2024-01-15'); 
+    const today = new Date();
+    const difference = today.getTime() - startDate.getTime();
+    const days = Math.ceil(difference / (1000 * 3600 * 24));
+    return days;
+  };
+
+  // --- RANDOM PAGE NAVIGATION ---
+  const navigateToRandomPage = () => {
+    const pages = ['/milestones', '/photos', '/notes'];
+    const randomPage = pages[Math.floor(Math.random() * pages.length)];
+    navigate(randomPage);
+  };
+
   return (
     <div className="home-layout">
       {/* Sidebar Navigation */}
@@ -9,9 +28,6 @@ const Home = () => {
       
       {/* MAIN CONTENT (Right Side) */}
       <main className="modern-content">
-        
-        {/* Top Right Decorative Icon */}
-        <div className="top-right-icon">✈️</div>
 
         <div className="content-grid">
           {/* Left Text Area */}
@@ -29,20 +45,28 @@ const Home = () => {
               I LOVE YOU! 💖
             </p>
 
-            <button className="modern-see-more-btn" onClick={() => alert('Love you!')}>
+            <div className="days-counter">
+              <span className="counter-number">{calculateDaysTogether()}</span>
+              <span className="counter-label">DAYS LOVING YOU</span>
+            </div>
+
+            <button className="modern-see-more-btn" onClick={navigateToRandomPage}>
               SEE MORE
             </button>
           </div>
 
-          {/* Right Arch Window (Clouds) */}
+          {/* Right Arch Window (Image) */}
           <div className="arch-container">
             <div className="arch-window">
-              <div className="sky">
-                <div className="cloud cloud-1"></div>
-                <div className="cloud cloud-2"></div>
-                <div className="cloud cloud-3"></div>
-              </div>
-              <div className="ground"></div>
+              <img 
+                src="/images/her.jpg" 
+                alt="Gorgeous you!" 
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
             </div>
           </div>
         </div>

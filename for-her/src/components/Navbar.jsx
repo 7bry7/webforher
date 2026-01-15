@@ -31,12 +31,15 @@ const Sidebar = () => {
           PHOTOS
         </Link>
         <Link to="/notes" className={`modern-nav-item ${isActive('/notes')}`}>
-          LOVE NOTES
+          ANNIV MESSAGE
         </Link>
       </div>
 
-      <button className="logout-link" onClick={handleLogout}>
-        <span className="logout-icon">↪</span> LOG OUT
+      <button 
+        className={`logout-link ${location.pathname === '/home' ? 'show-on-home' : ''}`} 
+        onClick={handleLogout}
+      >
+        <span className="logout-icon">↪</span>
       </button>
     </nav>
   );
