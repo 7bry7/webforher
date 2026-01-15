@@ -1,6 +1,7 @@
 import '../index.css';
 import Sidebar from '../components/Navbar';
 import { useNavigate } from 'react-router-dom';
+import herImage from '../assets/her.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const Home = () => {
           <div className="arch-container">
             <div className="arch-window">
               <img 
-                src="/images/her.jpg" 
+                src={herImage} 
                 alt="Gorgeous you!" 
                 style={{
                   width: '100%',
