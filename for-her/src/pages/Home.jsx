@@ -59,7 +59,7 @@ const Home = () => {
           <div className="arch-container">
             <div className="arch-window">
               <img 
-                src="./public/images/her.jpg" 
+                src="/images/her.jpg" 
                 alt="Gorgeous you!" 
                 style={{
                   width: '100%',
